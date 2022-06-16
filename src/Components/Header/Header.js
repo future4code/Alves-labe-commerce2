@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import LogoLoja from '../../Imagens/logo.png'
 
 const Cabecalho = styled.div`
-    background-color: #2B2B47;
+    background-color: #2B0551;
     color: white;
     display: flex;
     text-align: center;

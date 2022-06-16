@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Fundo = styled.footer`
     text-align: center;
-    background-color: #2B2B47;
+    background-color: #2B0551;
     color: white;
     display: flex;
     justify-content: space-around;
