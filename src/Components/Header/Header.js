@@ -6,24 +6,26 @@ const Cabecalho = styled.div`
     background-color: #2B0551;
     color: white;
     display: flex;
-    text-align: center;
-    justify-content: space-around;
+    justify-content: center;
+`
+const EspacoLogo = styled.picture`
+margin-right: 3vw;
 `
 
 const LogoDaLojas = styled.img`
     width: 100px;
 `
-
+const FonteTitulo = styled.h1`
+font-family: 'Press Start 2P', cursive;`
 
 export default class Header extends Component {
     render() {
         return (
             <Cabecalho>
-                <picture>
+                <EspacoLogo>
                     <LogoDaLojas src={LogoLoja} alt="Logo" />
-                </picture>
-                <h1>Espaço Profundo</h1>
-                <h1>Carrinho</h1>
+                </EspacoLogo>
+                <FonteTitulo>Space Shirt</FonteTitulo>
             </Cabecalho>
         )
     }
