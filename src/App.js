@@ -7,14 +7,20 @@ import Carrinho from './Components/Carrinho/Carrinho';
 import Footer from './Components/Footer/Footer';
 import listaProdutos from './Data/produtos';
 import IconeCarrinho from './Imagens/carrinho.png';
+import imagemfundo from './Imagens/imagemfundo.jpg';
 
 const ParteCima = styled.div`
-  background-color: #2B2B47; 
+  background-color: #2B0551; 
 `
 const ParteBaixo = styled.div`
-  background-color: #2B2B47;
+  background-color: #2B0551;
 `
-
+const ContainerSite = styled.div `
+  background-image: url(${imagemfundo});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  `
 const Container = styled.div`  
   width: 100%;     
   max-width: 1125px;     
@@ -128,13 +134,12 @@ class App extends Component {
     return (
       <div>
         <ParteCima>
-
           <Container>
             <Header />
           </Container>
 
         </ParteCima>
-
+        <ContainerSite>
         <Container>
 
           <ContainerMain>
@@ -148,13 +153,14 @@ class App extends Component {
           </ContainerMain>
 
         </Container>
-
+        </ContainerSite>
         <ParteBaixo>
           <Container>
             <Footer />
           </Container>
 
         </ParteBaixo>
+       
       </div>
     );
   }
