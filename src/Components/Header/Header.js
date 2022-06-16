@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import LogoLoja from '../../Imagens/spaceodyssey-logo.f7cb9aea.png'
+import LogoLoja from '../../Imagens/logo.png'
 
 const Cabecalho = styled.div`
     background-color: #2B2B47;
