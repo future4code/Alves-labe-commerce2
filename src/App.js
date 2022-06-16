@@ -71,56 +71,17 @@ class App extends Component {
 
   state = {
     produtos: listaProdutos,
-
-    produtosFiltrado: [],
-    naoFiltrando: true,
-
-    valor: "",
-    valorMin: "",
-    valorMax: "",
-    valorNome: "",
-    valorArray: [],
-    ordem: 'crescente',
-
-    itensNoCarrinho: []
   }
-
-  componentDidUpdate() {
-    const itensCarrinhoEmString = JSON.stringify(this.state.itensNoCarrinho)
-    localStorage.setItem("Itens no Carrinho", itensCarrinhoEmString);
-  };
-
-  componentDidMount() {
-    const carrinhoLocalStorage = JSON.parse(localStorage.getItem("Itens no Carrinho"))
-
-    if (carrinhoLocalStorage) {
-      this.setState({ itensNoCarrinho: carrinhoLocalStorage })
-    }
-  };
 
   render() {
 
-    const arrayProduto = this.state.produtos.filter(produto => {
-      return this.state.valorMin === '' || produto.valor >= this.state.valorMin
-    }).filter(produto => {
-      return this.state.valorMax === '' || produto.valor <= this.state.valorMax
-    }).filter(produto => {
-      return produto.nome.toLowerCase().includes(this.state.valorNome.toLocaleLowerCase())
-    }).sort((produtoAtual, proximoProduto) => {
-      switch (this.state.ordem) {
-        case 'crescente':
-          return produtoAtual.valor - proximoProduto.valor
-        case 'decrescente':
-          return proximoProduto.valor - produtoAtual.valor
-      }
-    })
-      .map((produto) => {
+    const arrayProduto = this.state.produtos.map((produto) => {
         return (
           <CardProduto key={produto.id}>
             <Imagem src={produto.imagem} alt='Imagem do produto' />
             <Paragrafo>{produto.nome}</Paragrafo>
             <Paragrafo>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Paragrafo>
-            <Botao onClick={() => this.adicionarItem(produto.id)}><IconeCifra src={IconeCarrinho} alt="Ícone Adicionar ao Carrinho" /></Botao>
+            <Botao onClick={"#"}><IconeCifra src={IconeCarrinho} alt="Ícone Adicionar ao Carrinho" /></Botao>
           </CardProduto>
         );
       });
