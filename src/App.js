@@ -9,13 +9,17 @@ import listaProdutos from './Data/produtos';
 import IconeCarrinho from './Imagens/carrinho.png';
 import imagemfundo from './Imagens/imagemfundo.jpg';
 
+const Geral = styled.div`
+  color: white;
+`
+
 const ParteCima = styled.div`
   background-color: #2B0551; 
 `
 const ParteBaixo = styled.div`
   background-color: #2B0551;
 `
-const ContainerSite = styled.div `
+const ContainerSite = styled.div`
   background-image: url(${imagemfundo});
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,6 +77,16 @@ const IconeCifra = styled.img`
   width: 20%;
 `
 
+const Filtrinho = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Seletor = styled.select`
+  width: 10%;
+`
+
 class App extends Component {
 
   state = {
@@ -91,17 +105,45 @@ class App extends Component {
     itensNoCarrinho: []
   }
 
-  componentDidUpdate() {
-    const itensCarrinhoEmString = JSON.stringify(this.state.itensNoCarrinho)
-    localStorage.setItem("Itens no Carrinho", itensCarrinhoEmString);
-  };
+  adicionarItem = (itemId) => {
+    const itemNoCarrinho = this.state.itensNoCarrinho.find(item => itemId === item.id)
+    if (itemNoCarrinho) {
+      const novosItensCarrinho = this.state.itensNoCarrinho.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            quantidade: item.quantidade + 1
+          }
+        }
+        return item
+      })
+      this.setState({ itensNoCarrinho: novosItensCarrinho })
+    } else {
+      const itemAdicionado = this.state.produtos.find(item => itemId === item.id)
 
-  componentDidMount() {
-    const carrinhoLocalStorage = JSON.parse(localStorage.getItem("Itens no Carrinho"))
+      const novosItensCarrinho = [...this.state.itensNoCarrinho, { ...itemAdicionado, quantidade: 1 }]
 
-    if (carrinhoLocalStorage) {
-      this.setState({ itensNoCarrinho: carrinhoLocalStorage })
+      this.setState({ itensNoCarrinho: novosItensCarrinho })
     }
+  }
+
+  removerItem = (itemID) => {
+    const novosProdutos = this.state.itensNoCarrinho.map((item) => {
+      if(item.id === itemID) {
+        return {
+          ...item,
+          quantidade: item.quantidade - 1
+        }
+      }
+      return item
+    }).filter((item) => item.quantidade > 0)
+    this.setState({itensNoCarrinho: novosProdutos})
+  }
+
+  updateOrdem = (event) => {
+    this.setState({
+      ordem: event.target.value
+    })
   };
 
   render() {
@@ -119,20 +161,19 @@ class App extends Component {
         case 'decrescente':
           return proximoProduto.valor - produtoAtual.valor
       }
-    })
-      .map((produto) => {
-        return (
-          <CardProduto key={produto.id}>
-            <Imagem src={produto.imagem} alt='Imagem do produto' />
-            <Paragrafo>{produto.nome}</Paragrafo>
-            <Paragrafo>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Paragrafo>
-            <Botao onClick={() => this.adicionarItem(produto.id)}><IconeCifra src={IconeCarrinho} alt="Ícone Adicionar ao Carrinho" /></Botao>
-          </CardProduto>
-        );
-      });
+    }).map((produto) => {
+      return (
+        <CardProduto key={produto.id}>
+          <Imagem src={produto.imagem} alt='Imagem do produto' />
+          <Paragrafo>{produto.nome}</Paragrafo>
+          <Paragrafo>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Paragrafo>
+          <Botao onClick={() => this.adicionarItem(produto.id)}><IconeCifra src={IconeCarrinho} alt="Ícone Adicionar ao Carrinho" /></Botao>
+        </CardProduto>
+      );
+    });
 
     return (
-      <div>
+      <Geral>
         <ParteCima>
           <Container>
             <Header />
@@ -140,19 +181,29 @@ class App extends Component {
 
         </ParteCima>
         <ContainerSite>
-        <Container>
+          <Container>
 
-          <ContainerMain>
+            <ContainerMain>
 
-            <Filtro />
-            <ParteMeio>
-              {arrayProduto}
-            </ParteMeio>
-            <Carrinho />
+              <Filtro />
+              <Filtrinho>
+              <label htmlFor="ordem">Ordem: </label>
+              <Seletor value={this.state.ordem} onChange={this.updateOrdem}>
+                <option value='crescente'>Crescente</option>
+                <option value='decrescente'>Decrescente</option>
+              </Seletor>
+              <ParteMeio>
+                {arrayProduto}
+              </ParteMeio>
+              </Filtrinho>
+              <Carrinho 
+                itensNoCarrinho={this.state.itensNoCarrinho}
+                removerItem={this.removerItem}
+              />
 
-          </ContainerMain>
+            </ContainerMain>
 
-        </Container>
+          </Container>
         </ContainerSite>
         <ParteBaixo>
           <Container>
@@ -160,8 +211,8 @@ class App extends Component {
           </Container>
 
         </ParteBaixo>
-       
-      </div>
+
+      </Geral>
     );
   }
 }
