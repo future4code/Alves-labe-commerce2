@@ -10,37 +10,37 @@ const listaProdutos = [
     {
       id: 1,
       nome: "Gato galático",
-      valor: 69.90,
+      valor: 20.90,
       imagem: camiseta1,
     },
     {
       id: 2,
       nome: "Yoda Coffee",
-      valor: 69.90,
+      valor: 40.90,
       imagem: camiseta2,
     },
     {
       id: 3,
       nome: "Cavaleiro astronauta",
-      valor: 69.90,
+      valor: 57.90,
       imagem: camiseta3,
     },
     {
       id: 4,
       nome: "Need some space",
-      valor: 69.90,
+      valor: 36.90,
       imagem: camiseta4,
     },
     {
       id: 5,
       nome: "Vaza!",
-      valor: 69.90,
+      valor: 100.90,
       imagem: camiseta5,
     },
     {
       id: 6,
       nome: "Star Trek",
-      valor: 69.90,
+      valor: 1000,
       imagem: camiseta6,
     },
   ]

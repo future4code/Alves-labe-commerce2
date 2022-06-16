@@ -15,15 +15,17 @@ const TextoInput = styled.div`
 export default class Filtro extends Component {
     render() {
         return (
-            <TextoInput>
-                <h2>Filtros</h2>
-                <label>Valor Mínimo:</label>
-                <CampoDePesquisa type="number" placeholder="Valor Mínimo"></CampoDePesquisa>
-                <label>Valor Máximo:</label>
-                <CampoDePesquisa type="number" placeholder="Valor Máximo"></CampoDePesquisa>
-                <label>Busca por nome:</label>
-                <CampoDePesquisa placeholder="Nome"></CampoDePesquisa>
-            </TextoInput>
+       <div>
+                <TextoInput>
+                    <h2>Filtros</h2>
+                    <label>Valor Mínimo:</label>
+                    <CampoDePesquisa type="number" placeholder="Valor Mínimo"></CampoDePesquisa>
+                    <label>Valor Máximo:</label>
+                    <CampoDePesquisa type="number" placeholder="Valor Máximo"></CampoDePesquisa>
+                    <label>Busca por nome:</label>
+                    <CampoDePesquisa placeholder="Nome"></CampoDePesquisa>
+                </TextoInput>
+       </div>
         )
     }
 }
