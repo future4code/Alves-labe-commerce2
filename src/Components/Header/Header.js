@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import LogoLoja from '../../Imagens/spaceodyssey-logo.f7cb9aea.png'
+import twitter from '../../Imagens/twitter.png'
 
 const Cabecalho = styled.div`
     background-color: #2B2B47;
@@ -20,7 +20,7 @@ export default class Header extends Component {
         return (
             <Cabecalho>
                 <picture>
-                    <LogoDaLojas src={LogoLoja} alt="Logo" />
+                    <LogoDaLojas src={twitter} alt="Logo" />
                 </picture>
                 <h1>Espaço Profundo</h1>
                 <h1>Carrinho</h1>
