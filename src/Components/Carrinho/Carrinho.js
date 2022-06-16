@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import IconeCarrinho from '../../Imagens/carrinho.png';
+import IconeFoguetinho from '../../Imagens/foguetinho.png';
 import ProdutosCarrinho from './ProdutosDoCarrinho'
+
 
 const EstilizacaoCarrinhoContainer = styled.div`
     margin: 10px;
    
 `
+const Foguetinho = styled.img`
+width: 100px;
+`
 
 const CarrinhoContainer = styled.div`
     grid-row-start: 2;
     border: 1px solid black;
-    background-color: #858585;
     margin: 10px;
     padding: 10px;
     color: black;
@@ -19,24 +22,28 @@ const CarrinhoContainer = styled.div`
     
     h3 {
         margin: 10px;
+        color: #FFE0FF;
         text-align: left;
     }
     p {
         margin: 10px;
+        color: #FFE0FF;
         font-weight: 500;
     }
 `
 
 const Pagar = styled.button`
+    font-family: 'Lobster', cursive;
+    color: #FFE0FF;
     margin: 10px;
-    height: 2rem;
-    padding: 0px 3px;
-    background-color: #41807d;
+    height: 3rem;
+    padding: 5px ;
+    background-color: #1184C3;
     border: 2px solid black;
     border-radius: 0.5em;
     cursor: pointer;
     :hover {
-      background-color: #50a3a0;
+      background-color: #5D79DC;
     }
     font-weight: 600;
     margin-top: 10%;
@@ -54,7 +61,8 @@ export default class Carrinho extends Component {
   render() {
     return (
       <CarrinhoContainer>
-        <h3><img src={IconeCarrinho} alt="Ícone Carrinho" /> Carrinho</h3>
+        
+        <Foguetinho src={IconeFoguetinho} alt="Ícone Carrinho"  /><h3>Foguetinho</h3>
         <EstilizacaoCarrinhoContainer>
           {this.props.itensNoCarrinho.map((produto) => {
             return <ProdutosCarrinho
@@ -65,7 +73,7 @@ export default class Carrinho extends Component {
         </EstilizacaoCarrinhoContainer>
 
         <p>Valor total: {this.getTotalValue()}</p>
-        <Pagar>Finalizar Compra</Pagar>
+        <Pagar>Enviar foguete</Pagar>
 
       </CarrinhoContainer>
     )

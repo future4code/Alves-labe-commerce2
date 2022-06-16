@@ -47,13 +47,13 @@ const Paragrafo = styled.p`
 const Botao = styled.button`
   margin-bottom: 10px;
   padding: 5px;
-  background-color: #41807d;
+  background-color: #1184C3;
   border: 2px solid black;
   width: 50%;
   border-radius: .5em;
   cursor: pointer;
   :hover {
-      background-color: #50a3a0;
+      background-color: #5D79DC;
     }
 `
 const Imagem = styled.img`
@@ -66,7 +66,7 @@ const CardProduto = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  background-color: green;
+
   margin: 10px;
   align-items: center;
   border-radius: 10px;

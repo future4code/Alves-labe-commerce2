@@ -2,16 +2,13 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Lixeira from '../../Imagens/lixeira.png'
 
+const Lixeirinha = styled.img `
+width: 30%;
+`
+
 const BotaoCarrinho = styled.button`
-    margin: 10px;
-    height: 2rem;
-    background-color: #41807d;
-    border: 2px solid black;
-    border-radius: .5em;
-    cursor: pointer;
-    :hover {
-      background-color: #50a3a0;
-    }
+border:none;
+background-color: transparent;
 `
 const CardCarrinho = styled.div`
     display: flex;
@@ -27,7 +24,7 @@ export default class ProdutosDoCarrinho extends Component {
         <CardCarrinho>
         <p>{this.props.item.quantidade}</p>
         <p>{this.props.item.nome}</p>
-        <BotaoCarrinho onClick={() => this.props.removerItem(this.props.item.id)}><img src={Lixeira} alt="Ícone Remover do Carrinho"/></BotaoCarrinho>
+        <BotaoCarrinho onClick={() => this.props.removerItem(this.props.item.id)}><Lixeirinha src={Lixeira} alt="Ícone Remover do Carrinho"/></BotaoCarrinho>
       </CardCarrinho>
     )
   }
