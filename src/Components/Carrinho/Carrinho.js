@@ -61,8 +61,8 @@ export default class Carrinho extends Component {
   render() {
     return (
       <CarrinhoContainer>
-        
-        <Foguetinho src={IconeFoguetinho} alt="Ícone Carrinho"  /><h3>Foguetinho</h3>
+
+        <Foguetinho src={IconeFoguetinho} alt="Ícone Carrinho" /><h3>Foguetinho</h3>
         <EstilizacaoCarrinhoContainer>
           {this.props.itensNoCarrinho.map((produto) => {
             return <ProdutosCarrinho

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Lixeira from '../../Imagens/lixeira.png'
 
-const Lixeirinha = styled.img `
+const Lixeirinha = styled.img`
 width: 30%;
 `
 
@@ -21,10 +21,10 @@ const CardCarrinho = styled.div`
 export default class ProdutosDoCarrinho extends Component {
   render() {
     return (
-        <CardCarrinho>
+      <CardCarrinho>
         <p>{this.props.item.quantidade}</p>
         <p>{this.props.item.nome}</p>
-        <BotaoCarrinho onClick={() => this.props.removerItem(this.props.item.id)}><Lixeirinha src={Lixeira} alt="Ícone Remover do Carrinho"/></BotaoCarrinho>
+        <BotaoCarrinho onClick={() => this.props.removerItem(this.props.item.id)}><Lixeirinha src={Lixeira} alt="Ícone Remover do Carrinho" /></BotaoCarrinho>
       </CardCarrinho>
     )
   }

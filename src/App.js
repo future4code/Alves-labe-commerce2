@@ -93,7 +93,6 @@ class App extends Component {
     produtos: listaProdutos,
 
     produtosFiltrado: [],
-    naoFiltrando: true,
 
     valor: "",
     valorMin: "",
@@ -127,9 +126,25 @@ class App extends Component {
     }
   }
 
+  valorDataApp = (data) => {
+    const id = data.target.id;
+    const valor = data.target.value;
+
+    this.setState({ valor: valor });
+
+    if (id === "1") {
+      this.setState({ valorMin: valor });
+    } else if (id === "2") {
+      this.setState({ valorMax: valor });
+    } else if (id === "3") {
+      return this.setState({ valorNome: valor });
+    } else if (this.state.valor) {
+      this.setState({produtosFiltrado: this.state.produtos.filter((item) => item.valor >= this.state.valorMin && item.valor <= this.state.valorMax)});
+    }
+  };
   removerItem = (itemID) => {
     const novosProdutos = this.state.itensNoCarrinho.map((item) => {
-      if(item.id === itemID) {
+      if (item.id === itemID) {
         return {
           ...item,
           quantidade: item.quantidade - 1
@@ -137,7 +152,7 @@ class App extends Component {
       }
       return item
     }).filter((item) => item.quantidade > 0)
-    this.setState({itensNoCarrinho: novosProdutos})
+    this.setState({ itensNoCarrinho: novosProdutos })
   }
 
   updateOrdem = (event) => {
@@ -185,18 +200,21 @@ class App extends Component {
 
             <ContainerMain>
 
-              <Filtro />
+              <Filtro
+                valorDataApp={this.valorDataApp}
+                inputLabel={"Valor mínimo:"}
+              />
               <Filtrinho>
-              <label htmlFor="ordem">Ordem: </label>
-              <Seletor value={this.state.ordem} onChange={this.updateOrdem}>
-                <option value='crescente'>Crescente</option>
-                <option value='decrescente'>Decrescente</option>
-              </Seletor>
-              <ParteMeio>
-                {arrayProduto}
-              </ParteMeio>
+                <label htmlFor="ordem">Ordem: </label>
+                <Seletor value={this.state.ordem} onChange={this.updateOrdem}>
+                  <option value='crescente'>Crescente</option>
+                  <option value='decrescente'>Decrescente</option>
+                </Seletor>
+                <ParteMeio>
+                  {arrayProduto}
+                </ParteMeio>
               </Filtrinho>
-              <Carrinho 
+              <Carrinho
                 itensNoCarrinho={this.state.itensNoCarrinho}
                 removerItem={this.removerItem}
               />
