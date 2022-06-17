@@ -13,7 +13,7 @@ const Fundo = styled.footer`
     justify-content: space-around;
 `
 const RedesSociais = styled.img`
-width: 15%;
+width: 11%;
 
 `
 export default class Footer extends Component {
