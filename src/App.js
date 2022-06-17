@@ -146,6 +146,40 @@ class App extends Component {
     })
   };
 
+  valorDataApp = (data) => {     
+    const id = data.target.id;     
+    const valor = data.target.value;      
+    this.setState(       
+      (state) => ({         
+      valor: valor       
+    }));      
+      if (id === "1") {       
+        this.setState(         
+          (state) => ({           
+          valorMin: valor         
+        }));     
+        }    
+           if (id === "2") {       
+            this.setState(         
+              (state) => ({           
+                valorMax: valor         
+              }));     
+            }     
+            if (id === "3") {       
+              return this.setState(         
+                (state) => ({           
+                  valorNome: valor         
+                }));     
+              }      
+              if (this.state.valor) {       
+                this.setState(         
+                  (state) => ({           
+                    produtosFiltrado: this.state.produtos             
+                    .filter((item) => item.valor >= this.state.valorMin && item.valor <= this.state.valorMax),           
+                    naoFiltrando: false,         
+                  }));      
+                }   
+              };
   render() {
 
     const arrayProduto = this.state.produtos.filter(produto => {
@@ -186,6 +220,8 @@ class App extends Component {
             <ContainerMain>
 
               <Filtro />
+              valorDataApp={this.valorDataApp}
+              inputLabel={"Valor Mínimo:"}
               <Filtrinho>
               <label htmlFor="ordem">Ordem: </label>
               <Seletor value={this.state.ordem} onChange={this.updateOrdem}>

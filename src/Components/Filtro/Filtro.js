@@ -13,41 +13,45 @@ const TextoInput = styled.div`
 
 
 export default class Filtro extends Component {
+    
     valorData = (e) => {
         this.props.valorDataApp(e)
     }
+    
     render() {
         return (
        <div>
-                <TextoInput>
+                    <TextoInput>
                     <h2>Filtros</h2>
                     
                     <label>Valor Mínimo:</label>
                     <CampoDePesquisa 
-                    type="number" 
                     placeholder="Valor Mínimo" 
                     id={1}
+                    type={"number"} 
                     onChange={this.valorData}
-                    ></CampoDePesquisa>
+                    />
                     
                     <br/>
                     
                     <label>Valor Máximo:</label>
                     <CampoDePesquisa 
-                    type="number" 
                     placeholder="Valor Máximo"
                     id={2}
-                    onChange={this.valorData}></CampoDePesquisa>
+                    type={"number"} 
+                    onChange={this.valorData}
+                    />
                     
                     <br/>
                     
                     <label>Busca por nome:</label>
                     <CampoDePesquisa 
-                    type=""
                     placeholder="Nome"
                     id={3}
-                    ></CampoDePesquisa>
-                </TextoInput>
+                    type={"text"}
+                    onChange={this.valorData}
+                   />
+                   </TextoInput>
        </div>
         )
     }
