@@ -14,13 +14,14 @@ const Fundo = styled.footer`
 `
 const RedesSociais = styled.img`
 width: 11%;
-
 `
+
+
 export default class Footer extends Component {
     render() {
         return (
             <Fundo>
-                <p>Espaço Profundo © 2022 - Todos os direitos reservados.</p>
+                <p>Star Shirt © 2022 - Todos os direitos reservados.</p>
                 <nav>
                     <a href="http://" alt="Facebook"><RedesSociais src={Facebook} alt="Facebook" /></a>
                     <a href="http://" alt="Instagram"><RedesSociais src={Instagram} alt="Instagram" /></a>
