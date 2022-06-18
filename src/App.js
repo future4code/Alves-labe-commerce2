@@ -20,11 +20,12 @@ const ParteBaixo = styled.div`
   background-color: #2B0551;
 `
 const ContainerSite = styled.div`
-  background-image: url(${imagemfundo});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  `
+   background-image: url(${imagemfundo});
+ background-repeat: no-repeat;
+ background-size: cover;
+background-attachment: fixed;
+ `
+
 const Container = styled.div`  
   width: 100%;     
   max-width: 1125px;     
@@ -139,7 +140,7 @@ class App extends Component {
     } else if (id === "3") {
       return this.setState({ valorNome: valor });
     } else if (this.state.valor) {
-      this.setState({produtosFiltrado: this.state.produtos.filter((item) => item.valor >= this.state.valorMin && item.valor <= this.state.valorMax)});
+      this.setState({ produtosFiltrado: this.state.produtos.filter((item) => item.valor >= this.state.valorMin && item.valor <= this.state.valorMax) });
     }
   };
   removerItem = (itemID) => {
