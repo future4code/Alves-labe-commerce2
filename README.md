@@ -1,1 +1,19 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+Projeto Star Shirt
+
+Star Shirt é uma loja de camisetas divertidas e estilosas, todas com um toque espacial.
+A Star Shirt tem um filtro funcional onde podemos selecionar por valor minimo, máximo e por nome.
+As camisetas podem ser colocadas e retiradas facilmente do carrinho de compras além de também serem ordenadas em ordem crescente ou decrescente.
+
+Esse projeto utilizou ReactJS.
+
+Autores do projeto: 
+Lucas Rafael Martins de Paula
+Henrique dos Santos Rodriguez
+Gabriela Tobias
+
+Link do Surge 
+painstaking-place.surge.sh
+
+![](src/Imagens/starshirt.jpg)
+
+![](src/Imagens/starshirt2.jpg) 
